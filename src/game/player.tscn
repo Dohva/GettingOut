@@ -1,7 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://b5rwhwymou154"]
+[gd_scene load_steps=20 format=3 uid="uid://b5rwhwymou154"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_pnvfp"]
-[ext_resource type="Texture2D" uid="uid://co6n3j3ole4j0" path="res://assets/player/player-sheet.png" id="2_bhtm8"]
+[ext_resource type="Texture2D" uid="uid://c78lkfilrquxr" path="res://assets/player/player-sheet.png" id="2_bhtm8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pu46f"]
 atlas = ExtResource("2_bhtm8")
@@ -26,6 +26,18 @@ region = Rect2(64, 0, 16, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_2jt22"]
 atlas = ExtResource("2_bhtm8")
 region = Rect2(80, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pm02k"]
+atlas = ExtResource("2_bhtm8")
+region = Rect2(224, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qxxli"]
+atlas = ExtResource("2_bhtm8")
+region = Rect2(208, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_63s2j"]
+atlas = ExtResource("2_bhtm8")
+region = Rect2(192, 0, 16, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r76kb"]
 atlas = ExtResource("2_bhtm8")
@@ -81,6 +93,30 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_pm02k")
+}],
+"loop": true,
+"name": &"jump_end",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qxxli")
+}],
+"loop": true,
+"name": &"jump_loop",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_63s2j")
+}],
+"loop": true,
+"name": &"jump_start",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_r76kb")
 }, {
 "duration": 1.0,
@@ -112,7 +148,7 @@ script = ExtResource("1_pnvfp")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(12, 25)
 sprite_frames = SubResource("SpriteFrames_pchmo")
-animation = &"walk"
+animation = &"jump_start"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(12, 25)
