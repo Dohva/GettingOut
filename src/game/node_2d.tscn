@@ -5,20 +5,57 @@
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o461j"]
 texture = ExtResource("1_2s6tq")
-1:1/0 = 0
 2:1/0 = 0
+2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:1/0/physics_layer_0/angular_velocity = 0.0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:1/0 = 0
+3:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:1/0/physics_layer_0/angular_velocity = 0.0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 5:1/0 = 0
+5:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:1/0/physics_layer_0/angular_velocity = 0.0
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 6:1/0 = 0
+6:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+6:1/0/physics_layer_0/angular_velocity = 0.0
+6:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 7:1/0 = 0
+7:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+7:1/0/physics_layer_0/angular_velocity = 0.0
+7:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:2/0 = 0
+1:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:2/0/physics_layer_0/angular_velocity = 0.0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:2/0 = 0
+2:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:2/0/physics_layer_0/angular_velocity = 0.0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:2/0 = 0
+3:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:2/0/physics_layer_0/angular_velocity = 0.0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:3/0 = 0
+1:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:3/0/physics_layer_0/angular_velocity = 0.0
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:3/0 = 0
+2:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:3/0/physics_layer_0/angular_velocity = 0.0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:3/0 = 0
+3:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:3/0/physics_layer_0/angular_velocity = 0.0
+3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSet" id="TileSet_iwb4d"]
+physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_o461j")
 
 [node name="Scene" type="Node2D"]
@@ -26,7 +63,7 @@ sources/0 = SubResource("TileSetAtlasSource_o461j")
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_iwb4d")
 format = 2
-layer_0/tile_data = PackedInt32Array(458756, 131072, 1, 458757, 131072, 1, 458758, 131072, 1, 458759, 131072, 1, 458760, 131072, 1, 458761, 131072, 1, 458762, 131072, 1, 458763, 131072, 1, 458755, 65536, 1, 458764, 196608, 1, 524292, 131072, 2, 524293, 131072, 2, 524294, 131072, 2, 524295, 131072, 2, 524296, 131072, 2, 524297, 131072, 2, 524298, 131072, 2, 524299, 131072, 2, 524300, 196608, 2, 524291, 65536, 2, 589827, 65536, 3, 589828, 131072, 3, 589829, 131072, 3, 589830, 131072, 3, 589831, 131072, 3, 589832, 131072, 3, 589833, 131072, 3, 589834, 131072, 3, 589835, 131072, 3, 589836, 196608, 3, 262157, 327680, 1, 262158, 393216, 1, 262159, 458752, 1, 131088, 327680, 1, 131089, 393216, 1, 131090, 458752, 1)
+layer_0/tile_data = PackedInt32Array(458756, 131072, 1, 458757, 131072, 1, 458758, 131072, 1, 458759, 131072, 1, 458760, 131072, 1, 458761, 131072, 1, 458762, 131072, 1, 458763, 131072, 1, 458755, 65536, 1, 458764, 196608, 1, 524292, 131072, 2, 524293, 131072, 2, 524294, 131072, 2, 524295, 131072, 2, 524296, 131072, 2, 524297, 131072, 2, 524298, 131072, 2, 524299, 131072, 2, 524300, 196608, 2, 524291, 65536, 2, 589827, 65536, 3, 589828, 131072, 3, 589829, 131072, 3, 589830, 131072, 3, 589831, 131072, 3, 589832, 131072, 3, 589833, 131072, 3, 589834, 131072, 3, 589835, 131072, 3, 589836, 196608, 3, 262157, 327680, 1, 262158, 393216, 1, 262159, 458752, 1, 131088, 327680, 1, 131089, 393216, 1, 131090, 458752, 1, 196609, 327680, 1, 196610, 393216, 1, 196611, 458752, 1)
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("2_4sb5a")]
 position = Vector2(103, 46)
