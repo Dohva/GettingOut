@@ -1,0 +1,55 @@
+[gd_scene load_steps=9 format=3 uid="uid://bcqlp64piu613"]
+
+[ext_resource type="Script" path="res://scripts/key.gd" id="1_5jrvk"]
+[ext_resource type="Texture2D" uid="uid://ckuosc7jekk7o" path="res://assets/key/key.png" id="1_rk7ua"]
+[ext_resource type="Texture2D" uid="uid://cvmq458qh1e8k" path="res://assets/sparkles/shadow_sparkle.png" id="2_47gyf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_16bim"]
+
+[sub_resource type="Curve" id="Curve_b7kk5"]
+_data = [Vector2(0.0139535, 1), 0.0, -0.225991, 0, 0, Vector2(0.953488, 0.252747), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_5u5o6"]
+curve = SubResource("Curve_b7kk5")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7c8au"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 10.0
+angle_max = 360.0
+spread = 90.0
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_5u5o6")
+
+[sub_resource type="Curve2D" id="Curve2D_u2jq3"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, -2, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, -2)
+}
+point_count = 4
+
+[node name="Key" type="Node2D"]
+script = ExtResource("1_5jrvk")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_16bim")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+process_material = SubResource("ParticleProcessMaterial_7c8au")
+texture = ExtResource("2_47gyf")
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_u2jq3")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(0, -2)
+rotation = 1.5708
+rotates = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Path2D/PathFollow2D"]
+rotation = -1.5708
+texture = ExtResource("1_rk7ua")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

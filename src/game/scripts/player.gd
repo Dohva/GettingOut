@@ -2,8 +2,8 @@ extends CharacterBody2D
 
 @onready var animated_sprite = $AnimatedSprite2D
 
-const SPEED = 100.0
-const JUMP_VELOCITY = -300.0
+const SPEED: float = 100.0
+const JUMP_VELOCITY: float = -400.0
 
 enum State { Idle, Run, Jump }
 
@@ -12,11 +12,11 @@ var current_state: State = State.Idle
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-func player_idle(delta):
+func player_idle(delta: float):
 	if is_on_floor():
 		current_state = State.Idle
 
-func player_run(delta):
+func player_run(delta: float):
 	var direction = Input.get_axis("move_left", "move_right")
 
 	if direction:
@@ -30,12 +30,12 @@ func player_run(delta):
 			current_state = State.Run
 		animated_sprite.flip_h = false if direction > 0 else true
 
-func player_falling(delta):
+func player_falling(delta: float):
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
-func player_jump(delta):
-	if Input.is_action_just_pressed("jump"):
+func player_jump(delta: float):
+	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 		current_state = State.Jump
 
@@ -52,16 +52,11 @@ func player_animations():
 		State.Run:
 			animated_sprite.play("walk")
 
-func _physics_process(delta):
+func _physics_process(delta: float):
 	player_falling(delta)
 	player_idle(delta)
 	player_run(delta)
 	player_jump(delta)
 
 	player_animations()
-
-
-
-func _process(_delta):
-	# I moved move_and_slide here because it made the sprite blurry if called from _physics_process
 	move_and_slide()
