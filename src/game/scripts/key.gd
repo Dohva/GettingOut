@@ -23,4 +23,13 @@ func hover(delta: float):
 func _on_area_2d_body_entered(body: Node2D):
 	if attached_body:
 		return
-	attached_body = body
+	# Cast body to Player, if body is not a Player it will be null and fail silently. Only Player can pick up keys.
+	var player := body as Player
+	if not player:
+		return
+	attached_body = player
+	player.has_key = true
+
+
+func _on_key_used():
+	self.queue_free()
