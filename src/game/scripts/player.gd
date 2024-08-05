@@ -1,6 +1,11 @@
+class_name Player
+
 extends CharacterBody2D
 
 @onready var animated_sprite = $AnimatedSprite2D
+
+signal key_used
+var has_key: bool = false
 
 const SPEED: float = 100.0
 const JUMP_VELOCITY: float = -400.0

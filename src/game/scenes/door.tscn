@@ -1,0 +1,50 @@
+[gd_scene load_steps=9 format=3 uid="uid://cfnybce64fcck"]
+
+[ext_resource type="Texture2D" uid="uid://dtgbebmmvcayh" path="res://assets/door/door.png" id="1_ar8ks"]
+[ext_resource type="Script" path="res://scripts/door.gd" id="1_giqq3"]
+[ext_resource type="Texture2D" uid="uid://cvmq458qh1e8k" path="res://assets/sparkles/shadow_sparkle.png" id="2_h8v4q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1imxr"]
+size = Vector2(32, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bf3jn"]
+size = Vector2(49, 48)
+
+[sub_resource type="Curve" id="Curve_70o7h"]
+_data = [Vector2(0.0139535, 1), 0.0, -0.225991, 0, 0, Vector2(0.953488, 0.252747), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_5u5o6"]
+curve = SubResource("Curve_70o7h")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2w4my"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 40.47
+angle_max = 360.0
+spread = 90.0
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_5u5o6")
+
+[node name="Door" type="Node2D"]
+script = ExtResource("1_giqq3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ar8ks")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Area2D"]
+
+[node name="DoorCollisionShape" type="CollisionShape2D" parent="Area2D/StaticBody2D"]
+shape = SubResource("RectangleShape2D_1imxr")
+
+[node name="PlayerDetectionShape" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_bf3jn")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+process_material = SubResource("ParticleProcessMaterial_2w4my")
+texture = ExtResource("2_h8v4q")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
